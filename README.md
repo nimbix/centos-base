@@ -1,2 +1,2 @@
 # centos-base
-CentOS base Docker images for JARVICE
+CentOS 7 base Docker images for JARVICE
