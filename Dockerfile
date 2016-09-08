@@ -15,5 +15,4 @@ RUN ln -s /usr/lib/JARVICE/tools/noVNC/images/favicon.png /usr/lib/JARVICE/tools
 WORKDIR /usr/lib/JARVICE/tools/noVNC/utils
 RUN ln -s websockify /usr/lib/JARVICE/tools/noVNC/utils/websockify.py && ln -s websockify /usr/lib/JARVICE/tools/noVNC/utils/wsproxy.py
 WORKDIR /tmp
-RUN cp -a /tmp/image-common-master/etc /etc/JARVICE && chmod 755 /etc/JARVICE && rm -rf /tmp/image-common-master
-RUN mkdir -m 0755 /data && chown nimbix:nimbix /data
+RUN cp -a /tmp/image-common-master/etc /etc/JARVICE && chmod 755 /etc/JARVICE && rm -rf /tmp/image-common-master && mkdir -m 0755 /data && chown nimbix:nimbix /data
