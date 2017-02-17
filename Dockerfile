@@ -2,11 +2,15 @@ FROM centos:6
 MAINTAINER Nimbix, Inc.
 
 # base OS
+RUN yum -y update
 ADD https://github.com/nimbix/image-common/archive/master.zip /tmp/nimbix.zip
 WORKDIR /tmp
 RUN yum -y install zip unzip xz tar file sudo openssh-server infiniband-diags openmpi perftest libibverbs-utils libmthca libcxgb4 libmlx4 libmlx5 dapl compat-dapl dap.i686 compat-dapl.i686 && yum clean all && unzip nimbix.zip && rm -f nimbix.zip
 RUN /tmp/image-common-master/setup-nimbix.sh
 RUN rm -f /etc/sysconfig/network-scripts/ifcfg-eth0 && echo '# leave empty' >/etc/fstab
+RUN sed -i 's|.sbin.start_udev||' /etc/rc.sysinit
+RUN sed -i 's|.sbin.start_udev||' /etc/rc.d/rc.sysinit
+RUN chkconfig udev-post off
 
 # Nimbix JARVICE emulation
 EXPOSE 22
