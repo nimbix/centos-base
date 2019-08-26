@@ -1,4 +1,5 @@
-FROM centos:7
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE:-centos:7}
 MAINTAINER Nimbix, Inc.
 
 # base OS
